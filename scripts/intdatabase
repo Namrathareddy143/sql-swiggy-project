@@ -1,1 +1,47 @@
+-- =====================================================
+-- Swiggy Data Warehouse Setup Script
+-- Purpose: Create Medallion Architecture (Bronze/Silver/Gold)
+-- Author: Namratha Pandilla
+-- Date: March 03, 2026
+-- =====================================================
 
+-- Step 1: Create fresh SwiggyData database
+CREATE DATABASE swiggydata;
+GO  -- Batch separator (execute immediately)
+USE swiggydata;  -- Switch to new database context
+GO
+
+-- Step 2: Create 3-Tier Schema Architecture (Medallion Model)
+-- BRONZE: Raw data ingestion layer (as-is from source)
+CREATE SCHEMA bronze;  
+GO
+-- SILVER: Cleaned, validated, enriched data
+CREATE SCHEMA silver;  
+GO
+-- GOLD: Aggregated, business-ready analytics layer
+CREATE SCHEMA gold;  
+GO
+
+-- =====================================================
+-- Git Commit Message:
+-- "feat: create SwiggyData DB + Bronze/Silver/Gold schemas (Medallion Architecture)"
+-- =====================================================
+
+
+
+Create database swiggydata;
+use swiggydata;
+
+IF EXISTS (SELECT * FROM sys.databases WHERE name = 'swiggydata')
+BEGIN
+    ALTER DATABASE swiggydata SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
+    DROP DATABASE swiggydata;
+END
+    go
+
+CREATE SCHEMA bronze ;
+GO
+CREATE SCHEMA silver ;
+GO
+CREATE SCHEMA gold ;
+GO
