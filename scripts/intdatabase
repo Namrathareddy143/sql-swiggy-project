@@ -1,4 +1,4 @@
--- =====================================================
+/*-- =====================================================
 -- Swiggy Data Warehouse Setup Script
 -- Purpose: Create Medallion Architecture (Bronze/Silver/Gold)
 -- Author: Namratha Pandilla
@@ -26,7 +26,7 @@ GO
 -- Git Commit Message:
 -- "feat: create SwiggyData DB + Bronze/Silver/Gold schemas (Medallion Architecture)"
 -- =====================================================
-
+*/
 
 
 Create database swiggydata;
