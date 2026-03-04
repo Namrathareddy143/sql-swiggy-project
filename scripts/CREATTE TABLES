@@ -1,0 +1,114 @@
+---CREATING TABLES OF DIFFERENT DATABASES FILES CSV FORMAT
+
+USE swiggydata; - USING THE DATABASE
+GO --IT IUSED GO TO NEXT LINE
+
+--CREATING THE FIRST FOOD TABLLE
+-- Step 1: Drop existing table (ignores if doesn't exist)
+DROP TABLE IF EXISTS bronze.food;
+GO
+
+-- Step 2: Create clean table
+CREATE TABLE bronze.food (
+    food_id NVARCHAR(50),
+    name NVARCHAR(500),
+    veg_non_veg NVARCHAR(50)
+    -- Add other columns from your CSV
+);
+GO
+
+--CREATING THE SECOND MENU TABLLE
+
+DROP TABLE IF EXISTS bronze.menu;
+GO
+
+-- Step 2: Create clean table
+CREATE TABLE bronze.Menu (
+    menu_id NVARCHAR(50),
+    r_id int,
+    f_id NVARCHAR(50),
+    cuisine VARCHAR(500),
+    price float,
+    -- Add other columns from your CSV
+);
+GO
+
+--CREATING THE 3RD ORDERS TABLLE
+
+DROP TABLE IF EXISTS bronze.orders;
+GO
+
+-- Step 2: Create clean table
+CREATE TABLE bronze.orders (
+      order_date NVARCHAR(20),
+    sales_qty int,
+    sales_amount Decimal(12,2),
+    currency VARCHAR(50),
+    user_id int,
+    r_id int
+    -- Add other columns from your CSV
+);
+
+
+--CREATING 4TH TABLE ORDERS TYPE
+
+DROP TABLE IF EXISTS bronze.orders_type;
+go
+
+CREATE TABLE bronze.orders_type(
+    Order_Id NVARCHAR(50),
+    Type NVARCHAR(30),
+   
+);
+GO
+
+--CREATING 5TH TABLE RESTAURANT TYPE
+
+DROP TABLE IF EXISTS bronze.restaurants;
+GO
+
+CREATE TABLE bronze.restaurants (
+    id INT,
+    name NVARCHAR(200),
+    Country VARCHAR(50),
+    city NVARCHAR(100),
+    rating nvarchar(100),
+    rating_count NVARCHAR(100),
+    cuisine NVARCHAR(500),
+    link NVARCHAR(500),
+    address NVARCHAR(500)
+);
+GO
+
+-- Insert sample data from your screenshot FOR THE REFERS LINK 
+INSERT INTO bronze.restaurants VALUES 
+(567335, 
+ 'AB Foods Point Central Abohar', 
+ 'India', 
+ 'Abohar', 
+ 4.40, 
+ '20+ ratings', 
+ 'South Indian, Beverages', 
+ 'https://www.swiggy.com/restaurants/ab-foods-point-central-abohar-abohar-567335', 
+ 'Central Abohar, Abohar'
+);
+GO
+
+--CREATING 5TH TABLE USERS 
+
+drop table IF EXISTS BRONZE.USERS;
+GO 
+CREATE TABLE BRONZE.USERS(
+user_id INT,
+name VARCHAR(50),
+Age INT,
+Gender VARCHAR (50),
+Marital_Status VARCHAR(100),
+Occupation VARCHAR(100)
+);
+
+---DONE WITH THE TABLE CREATION TO INSERT BUT GO TO BULK FILE
+-- INSERTION WAS DONE IN CSV FORMAT 
+--LETS GO
+
+
