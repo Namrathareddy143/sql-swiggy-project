@@ -1,0 +1,52 @@
+--UPLOAD BULK IN CSV FORMAT
+--INSERTING 1ST FILE FOOD
+BULK INSERT bronze.food -- INSERT THE BULK AND FILE NAME
+FROM 'C:\Users\namra\swiggy\foodcsv.csv' - ADDING THE FILE PATH 
+WITH (
+    FIELDTERMINATOR = ',', --CSV FILE WAS SEPRATED BY COMMA SO WE USE , SEPRATOR FOR CSV FILE
+    FIRSTROW = 2, -- ALWAY FIRST ROE SHOLUD BE THE HEADER SO WE CREATE IN TABLE AVIOD FIRST ROE UPLOAD THE DATA FROM THE 2ND ROW
+    FORMAT = 'CSV' -- IT SAYS THE FILE IN CSV FORMAT
+
+);
+
+-- Now load (SQL Server CAN access C:\temp)
+--CREATING THE 2ND FILE MENU
+
+BULK INSERT bronze.Menu
+FROM 'C:\Users\namra\swiggy\menucsv.csv'
+WITH (
+    FIELDTERMINATOR = ',',
+    FIRSTROW = 2,
+    FORMAT = 'CSV'
+   
+);
+GO
+
+--creating the 3rd file orderstype
+  BULK INSERT bronze.orders_type
+  FROM 'C:\Users\namra\swiggy\orders_Typecsv.csv'
+  WITH (
+      FIELDTERMINATOR = ',',
+      FIRSTROW = 2,
+      FORMAT = 'CSV'
+   
+  );
+
+--RESTAURANTS BULK
+
+     BULK INSERT bronze.restaurants
+FROM 'C:\Users\namra\swiggy\restaurantcsv.csv'
+WITH (
+    FIELDTERMINATOR = ',',
+    FIRSTROW = 2,
+    FORMAT = 'CSV'
+);
+creating 6th table users
+
+  bulk insert bronze.users
+  from 'C:\Users\namra\swiggy\userscsv.csv'
+  with (
+       fieldterminator = ',',
+       firstrow = 2,
+       format = 'CSV'
+       );
